@@ -9,11 +9,13 @@ class Post(Resource):
     def post(self):
         print(request.json)        
         return request.json, 201
+    def get(self, prueba):
+        return prueba,200
 
 ##
 ## Actually setup the Api resource routing here
 ##
-api.add_resource(Post, '/dummy')
+api.add_resource(Post,'/dummy','/dummy/<prueba>')
 
 if __name__ == '__main__':
     app.run(debug=True)
